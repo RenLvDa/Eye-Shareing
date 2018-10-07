@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+
     //初始化数据
     private void initData() {
         mTitle = new ArrayList<>();
@@ -67,36 +68,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFragment.add(new CompanyFragment());
         mFragment.add(new UserFragment());
     }
+
     //初始化View
-    private void initView(){
+    private void initView() {
         feb_setting = (FloatingActionButton) findViewById(R.id.fab_setting);
         feb_setting.setOnClickListener(this);
         //默认隐藏右下角设置按钮
         feb_setting.setVisibility(View.GONE);
 
-        mTabLayout = (TabLayout)findViewById(R.id.mTabLayout);
+        mTabLayout = (TabLayout) findViewById(R.id.mTabLayout);
         mViewPager = (ViewPager) findViewById(R.id.mViewPager);
 
         //预加载
         mViewPager.setOffscreenPageLimit(mFragment.size());
 
         //mViewPager滑动监听
-        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels){
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
+
             @Override
-            public void onPageSelected(int position){
-                Log.i("TAG","position "+position);
-                if(position == 0){
+            public void onPageSelected(int position) {
+                Log.i("TAG", "position " + position);
+                if (position == 0) {
                     feb_setting.setVisibility(View.GONE);
-                }else{
+                } else {
                     feb_setting.setVisibility(View.VISIBLE);
                 }
             }
+
             @Override
-            public void onPageScrollStateChanged(int state){
+            public void onPageScrollStateChanged(int state) {
 
             }
         });
@@ -108,11 +112,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public Fragment getItem(int position) {
                 return mFragment.get(position);
             }
+
             //返回item的个数
             @Override
             public int getCount() {
                 return mFragment.size();
             }
+
             //设置标题
             @Override
             public CharSequence getPageTitle(int position) {
@@ -125,16 +131,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.fab_setting:
                 startActivity(new Intent(this, SettingActivity.class));
                 break;
         }
     }
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig)
-    {
-        super.onConfigurationChanged(newConfig);
-    }
 }
