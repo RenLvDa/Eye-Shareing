@@ -160,7 +160,8 @@ public class PictureFragment extends Fragment implements View.OnClickListener {
 //        File imagefile = new File(contentUri.getPath());
 
         mPicture.setDescription(description).setUsername(usernaem);
-        File file = new File(Environment.getDataDirectory().getParentFile().getAbsolutePath(),PHOTO_IMAGE_ASSO_FILE_NAME);
+        File file = new File("sdcard",PHOTO_IMAGE_ASSO_FILE_NAME);
+        Log.e(TAG, "send_photo: "+file.getAbsolutePath());
 //        if (file.exists()) {
             BmobFile bmobFile = new BmobFile(file);
             mPicture.setImage(bmobFile);
