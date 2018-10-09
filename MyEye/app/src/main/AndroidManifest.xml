@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 摄像头 -->
+    <uses-permission android:name="android.permission.CAMERA" />
     <!--获取sd卡写的权限，用于文件上传和下载-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--允许读取手机状态 用于创建BmobInstallation-->
@@ -37,6 +39,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.myeye.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <!--入口-->
         <activity
             android:name="com.example.renlvda.MyEye.ui.SplashActivity"
@@ -53,7 +65,10 @@
             android:label="@string/text_setting"/>
 
         <!--主页-->
-        <activity android:name="com.example.renlvda.MyEye.MainActivity"/>
+        <activity android:name="com.example.renlvda.MyEye.MainActivity"
+                  android:windowSoftInputMode="adjustPan"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait" />
 
         <!--引导页-->
         <activity

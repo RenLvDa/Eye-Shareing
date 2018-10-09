@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <paths>
+        <!--Context.getFilesDir().-->
+        <files-path path="." name="picimages"/>
+        <!--Context.getFilesDir().-->
+        <external-path path="." name="picimages"/>
+    </paths>
+</resources>

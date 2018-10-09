@@ -13,12 +13,14 @@
     <EditText
         android:id="@+id/et_name"
         android:hint="用户名"
+        android:text="zn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
         android:inputType="textPassword"
         android:id="@+id/et_password"
         android:hint="密码"
+        android:text="zn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
